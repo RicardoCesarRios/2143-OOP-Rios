@@ -3,6 +3,7 @@
 ### Description:
 
 This program implements a class that will be a basic container type of integers that can shrink or grow dymaically while items are eiter added or removed
+One of the main purposes of this program is gain a grasp of the essence of object oriented programming
 ### Files
 
 |   #   | File     | Description                      |
