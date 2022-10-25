@@ -5,4 +5,4 @@
 - Class: 2143 OOP
 
 # OOP TERMINOLOGY
-
+##Abstraction
