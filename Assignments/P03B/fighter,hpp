@@ -1,0 +1,274 @@
+#include <iostream>
+#include <random>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstdlib>
+
+#include "weapon.hpp"
+#include "helpers.hpp"
+
+using namespace std;
+
+#pragma once
+
+/*
+Function declarations 
+void setHP
+void setRegen
+void attack
+void damagetaken
+void regen
+bool isAlive
+int GetHP
+
+
+
+*/
+
+double fRand(double fMin, double fMax)
+{
+    double f = (double)rand() / RAND_MAX;
+    return fMin + f * (fMax - fMin);
+}
+
+class BaseFighter {
+public:
+    string name;
+    Weapon *weapon;
+    int HP;
+    double regenHP;
+
+
+    BaseFighter() {
+        name = "None";
+        weapon = new Weapon;
+      HP=100;
+      regenHP=.5;
+    }
+
+    virtual double attack(){
+        return weapon->use();
+    }
+friend double fRand(double, double);
+    virtual string Print(){
+      string temp = "";
+      temp += "["; 
+      temp += name;
+      temp+= " , ";
+      temp+= "[";
+      temp+= weapon->getName();
+      temp+=" , ";
+      temp+= weapon->getDamage();
+      temp+= "]";
+      temp+= "]";
+      return temp;
+    }
+    friend ostream& operator<<(ostream& os, const BaseFighter& f) {
+        return os << "[" << f.name << " , " << *f.weapon << "]";
+    }
+string getname(){
+  return name;
+}
+ void setHp(int hp)
+{ 
+  HP = hp; 
+}
+void setRR(int RH) 
+{ 
+  RH = RH;
+}
+void Damage(int x) 
+{ 
+  HP -= x; 
+}
+
+void attack(BaseFighter *other) 
+{
+  other->Damage(weapon->use());
+}
+void regen() 
+{ 
+HP += regenHP;
+}
+bool alive() 
+{ 
+return HP > 0; 
+}
+int getHp() 
+{ 
+  return HP; 
+}
+
+
+};
+
+//going to make character classes that produce a rand iteration of a character
+// and a vecter of base fighters will point to it and produce a char of class
+
+
+// int WD = (rand()%2+1);
+//     if(WD==1){
+//       weapon = new Weapon("Sword","1.d.4");
+//       }
+//     else{
+//       weapon = new Weapon("Sword","1.d.6");
+//     }  
+//   }
+
+
+
+
+
+
+
+
+
+
+//warrior class constructor
+
+class Warrior : public BaseFighter
+{
+public:
+  Warrior(string team)
+{
+
+int weaponchoice = (rand()%2+1);
+  if(weaponchoice==1){
+      weapon = new Weapon("Sword","1.d.4");
+      }
+    else{
+      weapon = new Weapon("Sword","1.d.6");
+    }  
+  
+HP += rand()% 10;
+regenHP +=0;
+if(team == "defender")
+{
+regenHP+=1.5;
+}
+ }
+friend double fRand(double, double);
+
+};
+//Wizard class constructor
+
+class Wizard : public BaseFighter
+{
+public:
+  Wizard(string team)
+{
+
+//weapon = new Weapon randomChoice(vector<string>["1.d.20","2.d.10","3.d.6","5.d.4"]) ;
+
+  int WC = (rand()%3+1);
+  if(WC==1){
+      weapon = new Weapon("Bow","1.d.20");
+      }
+    else if (WC==2) {
+      weapon = new Weapon("Bow","2.d.10");
+    } 
+    else if (WC==3)
+    {
+        weapon = new Weapon("Bow","3.d.6");
+    }
+  else
+    {
+        weapon = new Weapon("Bow","5.d.4");
+    }
+HP += rand()% 20;
+regenHP +=0;
+if(team == "defender")
+{
+regenHP+=.7;
+}
+  }
+};
+
+//Archer class constructor
+
+class Archer : public BaseFighter
+{
+public:
+  Archer(string team)
+{
+int WC = (rand()%3+1);
+  if(WC==1){
+      weapon = new Weapon("Bow","1.d.8");
+      }
+    else if (WC==2) {
+      weapon = new Weapon("Bow","2.d.4");
+    } 
+    else
+    {
+        weapon = new Weapon("Bow","1.d.10");
+    }
+  
+//weapon = new Weapon randomChoice(vector<string>["1.d.8" ,"2.d.4","1.d.10"]);
+HP += rand()% 15;
+regenHP +=0;
+if(team == "defender")
+{
+regenHP+=1;
+}
+  }
+};
+
+//Elf class constructor
+
+class Elf : public BaseFighter
+{
+public:
+  Elf(string team)
+{
+int WC = (rand()%3+1);
+  if(WC==1){
+      weapon = new Weapon("Bow","1.d.8");
+      }
+    else if (WC==2) {
+      weapon = new Weapon("Bow","2.d.4");
+    } 
+    else
+    {
+        weapon = new Weapon("Bow","1.d.10");
+    }
+  
+weapon = new Weapon randomChoice(vector<string>["1.d.8" ,"2.d.4","1.d.10"]);
+weapon += new Weapon randomChoice(vector<string>[ "1.d.4", "1.d.6"]);
+HP += rand()% 10;
+regenHP +=0;
+if(team == "defender")
+{
+regenHP+=2.5;
+}
+}
+}
+class DragonBorn : public BaseFighter
+{
+public:
+  DragonBorn(string team)
+{
+iint WC = (rand()%3+1);
+  if(WC==1){
+      weapon = new Weapon("Bow","1.d.8");
+      }
+    else if (WC==2) {
+      weapon = new Weapon("Bow","2.d.4");
+    } 
+    else
+    {
+        weapon = new Weapon("Bow","1.d.10");
+    }
+  
+weapon = new Weapon randomChoice(vector<string>["1.d.4,1.d.6"]);
+weapon += new Weapon randomChoice(vector<string>[ "1.d.6, 1.d.8"]);
+HP += rand()% 10;
+regenHP +=0;
+if(team == "defender")
+{
+regenHP+=1.5;
+}
+}
+
+
+};
