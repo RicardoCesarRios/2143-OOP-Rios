@@ -17,8 +17,8 @@ One of the main purposes of this program is to further expand the understanding 
 |   4   | fighter.hpp| File containing character base clases|
 |   5   | helpers.hpp| supporting file |
 |   6   | weapon.hpp | file that contains weapon functions |
-
-
+|   7   | attackers.txt | file that contains attackers list |
+|   8   | results.txt | file that contains results of battle |
 ### Instructions
 
 - This program does not require any non standard libraries
