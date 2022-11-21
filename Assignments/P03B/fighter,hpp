@@ -31,7 +31,38 @@ double fRand(double fMin, double fMax)
     double f = (double)rand() / RAND_MAX;
     return fMin + f * (fMax - fMin);
 }
-
+/**
+ * Class Name
+ * 
+ * Description:
+ *      Acts as base class for the fighter charaters 
+ * 
+ * Public Methods:
+ *      virtual double attack
+ *      friend double fRand(double, double)
+ *      friend ostream& operator<<(ostream& os, const BaseFighter& f)
+ *      string getname
+ *      void setHp(double hp)
+ *      void setRR(double RH) 
+ *      void attack(BaseFighter *other)
+ *      void Damage(int x) 
+ *      void attack(BaseFighter *other) 
+ *      void regen()
+ *      bool alive()
+ *      int getHp()
+ *
+ *
+ * Private Methods:
+ *      - A list of 
+ *      - each private method
+ *      - with return types
+ * 
+ * Usage: 
+ * 
+ *      - Used as an intial base class 
+ *      
+ *      
+ */
 class BaseFighter {
 public:
     string name;
@@ -103,18 +134,37 @@ int getHp()
 
 };
 
-//going to make character classes that produce a rand iteration of a character
-// and a vecter of base fighters will point to it and produce a char of class
-
-
-// int WD = (rand()%2+1);
-//     if(WD==1){
-//       weapon = new Weapon("Sword","1.d.4");
-//       }
-//     else{
-//       weapon = new Weapon("Sword","1.d.6");
-//     }  
-//   }
+/**
+ * Class warrior/wizard/Archer/Elf/DragonBorn
+ * 
+ * Description:
+ *     it creates a iteration of a hero 
+ * 
+ * Public Methods:
+  Are inhereted from the base fighter class
+  virtual double attack
+ *      friend double fRand(double, double)
+ *      friend ostream& operator<<(ostream& os, const BaseFighter& f)
+ *      string getname
+ *      void setHp(double hp)
+ *      void setRR(double RH) 
+ *      void attack(BaseFighter *other)
+ *      void Damage(int x) 
+ *      void attack(BaseFighter *other) 
+ *      void regen()
+ *      bool alive()
+ *      int getHp()
+ * Private Methods:
+ *      - A list of 
+ *      - each private method
+ *      - with return types
+ * 
+ * Usage: 
+ * 
+ *      - examples of how
+ *      - to use your class 
+ *      
+ */
 
 
 
