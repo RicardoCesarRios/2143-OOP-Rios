@@ -9,7 +9,7 @@
 #include <time.h>
 #include <vector>
 #include <thread>
-//
+
 int main() {
   ifstream infile;
   ofstream outfile;
@@ -92,5 +92,12 @@ int main() {
     if (!Defenders.back()->alive()) {
       Defenders.pop_back();
     }
-  } 
+  }
+
+  if (Attackers.size() == 0) {
+    cout << "Defenders won!" << '\n'; 
+    }
+   else {
+    cout << "Attackers won!" << '\n';
+  }
   }
