@@ -36,7 +36,7 @@ class BaseFighter {
 public:
     string name;
     Weapon *weapon;
-    int HP;
+    double HP;
     double regenHP;
 
 
@@ -70,11 +70,11 @@ friend double fRand(double, double);
 string getname(){
   return name;
 }
- void setHp(int hp)
+ void setHp(double hp)
 { 
   HP = hp; 
 }
-void setRR(int RH) 
+void setRR(double RH) 
 { 
   RH = RH;
 }
@@ -163,18 +163,18 @@ public:
 
   int WC = (rand()%3+1);
   if(WC==1){
-      weapon = new Weapon("Bow","1.d.20");
+      weapon = new Weapon("Spell","1.d.20");
       }
     else if (WC==2) {
-      weapon = new Weapon("Bow","2.d.10");
+      weapon = new Weapon("Spell","2.d.10");
     } 
     else if (WC==3)
     {
-        weapon = new Weapon("Bow","3.d.6");
+        weapon = new Weapon("Spell","3.d.6");
     }
   else
     {
-        weapon = new Weapon("Bow","5.d.4");
+        weapon = new Weapon("Spell","5.d.4");
     }
 HP += rand()% 20;
 regenHP +=0;
@@ -223,18 +223,19 @@ public:
 {
 int WC = (rand()%3+1);
   if(WC==1){
-      weapon = new Weapon("Bow","1.d.8");
+      weapon = new Weapon("Bow","1.d.12");
+
       }
     else if (WC==2) {
-      weapon = new Weapon("Bow","2.d.4");
+      weapon = new Weapon("Bow","2.d.6");
     } 
     else
     {
-        weapon = new Weapon("Bow","1.d.10");
+        weapon = new Weapon("Bow","1.d.16");
     }
   
-weapon = new Weapon randomChoice(vector<string>["1.d.8" ,"2.d.4","1.d.10"]);
-weapon += new Weapon randomChoice(vector<string>[ "1.d.4", "1.d.6"]);
+//weapon = new Weapon randomChoice(vector<string>["1.d.8" ,"2.d.4","1.d.10"]);
+//weapon += new Weapon randomChoice(vector<string>[ "1.d.4", "1.d.6"]);
 HP += rand()% 10;
 regenHP +=0;
 if(team == "defender")
@@ -242,26 +243,26 @@ if(team == "defender")
 regenHP+=2.5;
 }
 }
-}
+};
 class DragonBorn : public BaseFighter
 {
 public:
   DragonBorn(string team)
 {
-iint WC = (rand()%3+1);
+int WC = (rand()%3+1);
   if(WC==1){
-      weapon = new Weapon("Bow","1.d.8");
+      weapon = new Weapon("Sword","1.d.14");
       }
     else if (WC==2) {
-      weapon = new Weapon("Bow","2.d.4");
+      weapon = new Weapon("Sword","2.d.8");
     } 
     else
     {
-        weapon = new Weapon("Bow","1.d.10");
+        weapon = new Weapon("Sword","1.d.16");
     }
   
-weapon = new Weapon randomChoice(vector<string>["1.d.4,1.d.6"]);
-weapon += new Weapon randomChoice(vector<string>[ "1.d.6, 1.d.8"]);
+//weapon = new Weapon randomChoice(vector<string>["1.d.4,1.d.6"]);
+//weapon += new Weapon randomChoice(vector<string>[ "1.d.6, 1.d.8"]);
 HP += rand()% 10;
 regenHP +=0;
 if(team == "defender")
