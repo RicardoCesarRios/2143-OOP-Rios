@@ -25,7 +25,7 @@ One of the main purposes of this program is to further expand the understanding 
 
 ### Example Command
 Input file containing 
-warrior
+Warrior
 Elf
 Wizard
 Archer
