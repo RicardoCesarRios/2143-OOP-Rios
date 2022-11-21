@@ -34,7 +34,11 @@ public:
         damage = randomChoice(choices);
         die = new Dice(damage);
     }
-    
+    Weapon(string n, string d){
+      name = n;
+      damage = d;
+      die = new Dice(damage);
+    }
 
     double use() {
         return die->roll();
