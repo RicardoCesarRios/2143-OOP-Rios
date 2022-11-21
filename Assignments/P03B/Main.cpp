@@ -100,4 +100,8 @@ int main() {
    else {
     cout << "Attackers won!" << '\n';
   }
+     outfile << "Defenders alive: " << Defenders.size() << endl;
+  outfile << "Attackers alive: " << Attackers.size() << endl;
+   outfile.close();
+  }
   }
